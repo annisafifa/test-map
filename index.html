@@ -74,7 +74,7 @@
 
                 var currentLoc = L.circle(loc, {color:'#0022ff', fillColor:'#00ccff', fillOpacity:1, radius:100}).bindPopup("<b>You Are Here</b>")
 
-                var approx = L.circle(loc,{color:'red', fillColor:'#0099ff', fillOpacity:0.2, radius:acc/100}).addTo(map)
+                var approx = L.circle(loc,{color:'red', fillColor:'#0099ff', fillOpacity:0.2, radius:acc}).addTo(map)
 
                 currentLoc.on('click', function(e){map.flyTo(e.latlng); this.openPopup()})
                 currentLoc.addTo(map);
