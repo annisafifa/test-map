@@ -24,7 +24,7 @@
                target.style.height = screen.height+"px"
 
                if (navigator.geolocation) {
-                    // navigator.geolocation.getCurrentPosition(showMap);
+                    navigator.geolocation.getCurrentPosition(showMap);
                 } else {
                     target.innerHTML = `<h1 style="padding-top:${screen.height/2.5}px; text-align:center;">No Geolocation Support</h1>`
                     }
