@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./leaflet/leaflet.css">
+    <script src="./leaflet/leaflet.js"></script>
+    <title>Map Test</title>
+    <style>
+        body{
+            margin: 0;
+            overflow: hidden;
+        }
+
+    </style>
+</head>
+<body>
+          <div id="map" style="position: absolute;"></div>
+        
+       <script>
+               // Create a map object and specify the DOM element for display.
+               var target = document.querySelector("#map")
+               target.style.width = screen.width+"px"
+               target.style.height = screen.height+"px"
+
+               if (navigator.geolocation) {
+                    // navigator.geolocation.getCurrentPosition(showMap);
+                } else {
+                    target.innerHTML = `<h1 style="padding-top:${screen.height/2.5}px; text-align:center;">No Geolocation Support</h1>`
+                    }
+
+                    function showMap(position) {
+                    var x = [position.coords.latitude, position.coords.longitude];
+                    initMap(x)
+                    }
+
+               function initMap(loc){
+               var map = L.map(target, {
+                    center: loc,
+                    zoom: 15
+                });
+                L.marker(loc).addTo(map);
+                L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+                }).addTo(map);
+               }
+     
+       </script>
+       
+    
+</body>
+</html>
